@@ -1,0 +1,31 @@
+  JSONObject jsonObject = new JSONObject(data);
+                                String token12 = jsonObject.getString("token");
+                                String menuItems = jsonObject.getString("menuItems");
+
+
+                                JSONArray arrJson = jsonObject.getJSONArray("menuItems");
+                                myarray1 = new String[arrJson.length()];
+                                for(int i = 0; i < arrJson.length(); i++)
+                                    myarray1[i] = arrJson.getString(i);
+
+                                Log.e("arr", Arrays.toString(myarray1));
+
+                                Log.e("aaa", token12);
+
+
+
+
+        String[] array = mainActivity.myarray1;
+
+
+        if (Arrays.asList(array).contains("Stoke Take")) {
+            card_stocktake.setVisibility(View.VISIBLE);
+        } else {
+            card_stocktake.setVisibility(View.GONE);
+        }
+
+        if (Arrays.asList(array).contains("Stoke Requisition")) {
+            card_stockrequisition.setVisibility(View.VISIBLE);
+        } else {
+            card_stockrequisition.setVisibility(View.GONE);
+        }
